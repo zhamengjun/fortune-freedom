@@ -4,5 +4,5 @@
 
 ## day-day-up
 
-* [执行力](day-day-up/growing-50.md)
+* [执行力](docs/growing-50.md)
 
