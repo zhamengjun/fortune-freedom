@@ -1,17 +1,16 @@
-## 编程之道
-
 ### 防抖(控制次数)
 
 ```javascript
+
   /**
    * 防抖(控制次数)
    * @param fn
    * @param delay
    * @param isImmediate(是否立即执行)
    */
-  debounce(fn, delay = 500, isImmediate = false) {
+  function debounce(fn, delay = 500, isImmediate = false) {
     let timer = null;
-
+    
     return function () {
       if (timer) {
         clearTimeout(timer);
@@ -27,19 +26,21 @@
       }, delay);
     }
   }
+
 ```
 
 ### 节流(控制频率)
 
 ```javascript
+
   /**
    * 节流(控制频率)
    * @param fn
    * @param delay
    */
-  throttle(fn, delay = 100) {
+  function throttle(fn, delay = 100) {
     let timer = null;
-
+    
     return function () {
       if (timer) {
         return;
@@ -51,10 +52,5 @@
       }, delay);
     }
   }
+
 ```
-
-## 5分钟商学院
-
-## 每天听本书
-
-### 《深度工作》
