@@ -1,7 +1,7 @@
 * 编程之道
   * [前端基础](/coding/javascript/README.md)
   * [数据结构](/coding/data-structure/README.md)
-  * [设计模式](custom-navbar.md)
+  * [ECMAScript](/coding/ecmascript/README.md)
   * [iOS开发](cover.md)
 
 * 商学院
