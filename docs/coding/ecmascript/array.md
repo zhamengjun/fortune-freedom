@@ -176,4 +176,146 @@ for (let [index, item] of arr.entries()) {
 }
 ```
 
+
 ## 数组的扩展
+
+### 类数组/伪数组
+
+并不是真正意义上数组，但有length属性。`instanceof`检测为false。并不具备数组的方法，比如push。
+
+- 哪些是伪数组
+
+```javascript
+// 1. HTMLCollection
+let divs1 = document.getElementsByTagName('div');
+console.log(divs)
+
+// 2. HTMLCollection
+let divs2 = document.getElementsByClassName('.xx');
+console.log(divs1);
+
+// 3. NodeList
+let divs3 = document.querySelectorAll('.xx');
+console.log(divs3);
+
+// 4. Arguments
+function f() {
+console.log(arguments instanceof Array)
+}
+f('mark', 'down');
+```
+
+- ES5将类数组/伪数组转换为真数组
+
+```javascript
+// slice
+let arr = Array.prototype.slice.call(divs);
+arr.push(123);
+```
+
+
+### Array.from( )
+
+将伪数组转为真数组
+
+```javascript
+let arrayLike = {
+  0: 'a',
+  1: 'b',
+  2: 'c',
+  length: 3
+};
+
+let arr = Array.from(arrayLike);
+console.log(arr instanceof Array);
+arr.push('d');
+console.log(arr);
+```
+
+
+### Array.of( )
+
+数组初始化的时候使用
+
+- 初始化数组和`new Array()`的不同
+
+```javascript
+// [1, 2] => length: 2
+let arr = new Array(1, 2);
+console.log(arr);
+
+// [1, 2] => length: 2
+let arr = Array.of(1, 2);
+console.log(arr);
+
+// [ <3 empty items> ] => length: 0
+let arr = new Array(3);
+console.log(arr);
+
+// [3] => length: 1
+let arr = Array.of(3);
+console.log(arr);
+```
+
+- 传入其它类型数据，返回一个数组
+
+```javascript
+// [ 1, false, 'a', [ 1, 2 ], { a: 'a' } ]
+let arr = Array.of(1, false, 'a', [1, 2], {a: 'a'});
+console.log(arr);
+```
+
+
+### copyWithin()
+
+用数组里某些元素，替换掉其它元素
+
+```javascript
+let arr = [1, 2, 3, 4, 5];
+arr.copyWithin(1, 3);
+// [ 1, 4, 5, 4, 5 ]
+console.log(arr);
+```
+
+
+### fill()
+
+对数组里面元素进行填充
+
+```javascript
+// 填充
+let arr = new Array(3).fill(1);
+// [ 1, 1, 1 ]
+console.log(arr);
+
+// 替换
+let arr = [1, 2, 3, 4, 5];
+arr.fill('a', 1, 3);
+// [ 1, 'a', 'a', 4, 5 ]
+console.log(arr);
+
+// 替换
+let arr = [1, 2, 3, 4, 5];
+arr.fill(0);
+// [ 0, 0, 0, 0, 0 ]
+console.log(arr);
+```
+
+
+### includes()
+
+可以检测数组里是否包含`NaN`
+
+```javascript
+// NaN
+console.log(5 - 'a');
+let arr = [1, 2, 3, 4, 5, NaN];
+// 3
+console.log(arr.indexOf(4));
+// -1
+console.log(arr.indexOf(NaN));
+// false
+console.log(NaN == NaN);
+// true
+console.log(arr.includes(NaN));
+```
