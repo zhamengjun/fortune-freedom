@@ -1,9 +1,8 @@
 ## 数组的遍历方式
 
-
 ### ES5中数组遍历方式
 
-- for( )
+- for()
 
 支持`break;`和`continue;`语句
 
@@ -17,7 +16,7 @@ for (let i = 0; i < arr.length; i++) {
 ```
 
 
-- forEach( )
+- forEach()
 
 没有返回值，针对数组的每个元素调用函数。
 
@@ -31,7 +30,7 @@ arr.forEach((item, index, arr) => {
 ```
 
 
-- map( )
+- map()
 
 ```javascript
 let arr = [1, 2, 3];
@@ -44,7 +43,7 @@ let result = arr.map((item, index, arr) => {
 返回新的Array，每个元素为调用函数的结果。
 
 
-- filter( )
+- filter()
 
 返回符合条件的元素Array。
 
@@ -57,7 +56,7 @@ let result = arr.filter((item, index, arr) => {
 ```
 
 
-- some( )
+- some()
 
 返回Boolean，判断数组是否有符合条件的元素。
 
@@ -70,7 +69,7 @@ let result = arr.some((item, index, arr) => {
 ```
 
 
-- every( )
+- every()
 
 返回Boolean，判断数组每个元素是否都符合条件。
 
@@ -128,7 +127,7 @@ for (let item in arr) {
 
 ### ES6中数组遍历方式
 
-- find( )
+- find()
 
 返回数组第一个满足条件的元素。
 
@@ -140,7 +139,7 @@ let result = arr.find(function (item) {
 ```
 
 
-- findIndex( )
+- findIndex()
 
 返回数组第一个满足条件的元素索引值。
 
@@ -214,7 +213,7 @@ arr.push(123);
 ```
 
 
-### Array.from( )
+### Array.from()
 
 将伪数组转为真数组
 
@@ -233,7 +232,7 @@ console.log(arr);
 ```
 
 
-### Array.of( )
+### Array.of()
 
 数组初始化的时候使用
 
