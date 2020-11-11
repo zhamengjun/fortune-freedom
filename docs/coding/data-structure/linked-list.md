@@ -62,3 +62,41 @@ let addTwoNumbers = function(l1, l2) {
   return l3.next;
 };
 ```
+
+### 删除排序链表中的重复元素
+
+**解题思路**
+
+1. 因为链表是有序的，所以重复元素一定相邻
+2. 遍历链表，如果当前链表元素和下一个链表元素相同，则删除下一个链表元素值
+
+**解题步骤**
+
+1. 遍历链表，如果发现当前链表元素和下一个链表元素相同，则删除下一个链表元素值
+2. 遍历结束，返回原链表的头部
+
+```javascript
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var deleteDuplicates = function(head) {
+    let p = head;
+
+    while (p && p.next) {
+        if(p.val === p.next.val) {
+            p.next = p.next.next;
+        } else {
+            p = p.next;
+        }
+    }
+    return head;
+};
+```
