@@ -20,4 +20,3 @@ yarn-error.log*
 *.sw*
 dist/
 node_modules/
-mui/node_modules/
