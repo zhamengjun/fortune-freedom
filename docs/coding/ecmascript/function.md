@@ -83,3 +83,75 @@ console.log(f.bind({}).name);
 // bound
 console.log((function () {}).bind({}).name);
 ```
+
+### 箭头函数
+
+**函数预定义**
+
+```javascript
+// 9
+console.log(sum(4, 5));
+function sum(x, y) {
+  return x + y;
+}
+
+// ReferenceError: sum is not defined
+console.log(sum(4, 5));
+let sum = function(x, y) {
+  return x + y;
+};
+```
+
+**this的指向定义时所在的对象，而不是调用时所在的对象**
+
+```javascript
+let btn = document.querySelector('#btn');
+btn.addEventListener('click', function () {
+  // btn
+  console.log(this);
+
+  window.setTimeout(function () {
+    // window
+    console.log(this);
+  }, 1000);
+
+  setTimeout(function () {
+    // btn
+    console.log(this);
+  }.bind(this), 1000);
+
+  setTimeout(() => {
+    // btn
+    console.log(this);
+  }, 1000);
+});
+```
+
+**不可以当作构造函数**
+
+```javascript
+let People = (name, age) => {
+  this.name = name;
+  this.age = age;
+}
+let p1 = new People('mark', 26);
+// Uncaught TypeError: People is not a constructor. at <annonymous>
+console.log(p1);
+```
+
+**不可以使用arguments对象**
+
+```javascript
+let foo = () => {
+  // Uncaught ReferenceError: arguments is not defined at foo.
+  console.log(arguments);
+}
+foo(1, 2, 3);
+
+// 可以使用rest参数传参
+let foo = (...args) => {
+  // 1, 2, 3
+  console.log(args);
+}
+foo(1, 2, 3);
+```
