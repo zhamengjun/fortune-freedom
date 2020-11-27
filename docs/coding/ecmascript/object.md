@@ -76,3 +76,8 @@ Reflect.ownKeys(obj).forEach(key => {
   console.log(key, obj[key]);
 });
 ```
+
+### 判断应用类型的方法
+
+- instanceof
+- Object.Property.toString.call();
