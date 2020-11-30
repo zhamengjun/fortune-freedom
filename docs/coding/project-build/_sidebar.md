@@ -1,2 +1,2 @@
 * Webpack
-  * [链表](linked-list.md)
+  * [webpack快速构建项目](001.md)
