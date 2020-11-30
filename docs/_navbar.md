@@ -2,7 +2,7 @@
   * [前端基础](/coding/javascript/README.md)
   * [数据结构](/coding/data-structure/README.md)
   * [ECMAScript](/coding/ecmascript/README.md)
-  * [iOS开发](cover.md)
+  * [设计模式](/coding/design-pattern/README.md)
 
 * 商学院
   * [刘润5分钟商学院](/commerce/mba-base/README.md)
